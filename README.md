@@ -9,3 +9,7 @@ java -cp target/classes dev.matchlab.Main sample/telemetry.csv
 ```
 
 the included telemetry is synthetic. the thresholds are general diagnostics, not robot-specific calibration or measured results from a competition.
+
+## Implementation details
+
+`CycleTiming` derives observed cycle durations from telemetry timestamps and summarizes mean duration and sample variation independently of the sampling frequency.
