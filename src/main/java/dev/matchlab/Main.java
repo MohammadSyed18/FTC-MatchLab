@@ -1,0 +1,2 @@
+package dev.matchlab; import java.nio.file.*;
+public class Main {public static void main(String[] args)throws Exception{if(args.length!=1){System.err.println("usage: matchlab <telemetry.csv>");System.exit(2);}var a=new TelemetryAnalyzer();var r=a.analyze(a.parse(Path.of(args[0])));System.out.printf("samples=%d rms_path_error=%.3f cycle_stddev=%.3f motor_imbalance=%.3f reliability=%.1f%%%n",r.samples(),r.rmsPathError(),r.cycleStdDev(),r.motorImbalance(),r.reliability()*100);r.faults().forEach(f->System.out.printf("FAULT %s: %s (%.3f)%n",f.rule(),f.explanation(),f.value()));}}
